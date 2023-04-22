@@ -3,20 +3,20 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import styled from 'styled-components'
 
 const MainContainer = styled.div`
-  width: 100%;
-  height: 100vh;
+  height: 300px;
+  width: 560px;
   display: flex;
   align-items: center;
 `
 
 const Window = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 300px;
+  width: 560px;
   overflow: hidden;
 `
 
 const AllPagesContainer = styled.div`
-  height: 100%;
+  height: 560px;
   display: flex;
   transition: translate;
   transition-property: transform;
@@ -25,7 +25,7 @@ const AllPagesContainer = styled.div`
 `
 
 export default function Carousel({ children }: { children: React.ReactNode }) {
-  const PAGE_WIDTH = 1024
+  const PAGE_WIDTH = 560
   const [pages, setPages] = useState<ReactElement[]>([])
   const [offset, setOffset] = useState<number>(0)
   const swipeRef = useRef<HTMLDivElement>(null)
@@ -33,7 +33,6 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
   const handleLeftArrowClick = () => {
     setOffset((currentOffset) => {
       const newOffset = currentOffset + PAGE_WIDTH
-      console.log(newOffset)
       return Math.min(newOffset, 0)
     })
   }
@@ -41,7 +40,6 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
     setOffset((currentOffset) => {
       const newOffset = currentOffset - PAGE_WIDTH
       const maxOffset = -(PAGE_WIDTH * (pages.length - 1))
-      console.log(newOffset, maxOffset)
       return Math.max(newOffset, maxOffset)
     })
   }
@@ -78,6 +76,7 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
 
   return (
     <MainContainer>
+      <FaChevronLeft style={{ cursor: 'pointer', width: '30px', height: '30px' }} onClick={handleLeftArrowClick} />
       <Window ref={swipeRef} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <AllPagesContainer
           style={{
@@ -87,6 +86,7 @@ export default function Carousel({ children }: { children: React.ReactNode }) {
           {pages}
         </AllPagesContainer>
       </Window>
+      <FaChevronRight style={{ cursor: 'pointer', width: '30px', height: '30px' }} onClick={handleRightArrowClick} />
     </MainContainer>
   )
 }
