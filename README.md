@@ -7,8 +7,8 @@ Check out [live](https://task-from-onpoint.vercel.app/)
 
 Clone this repo
 
-cd task-from-onpoint
+<code>cd task-from-onpoint</code>
 
-Run yarn
+<code>Run yarn</code>
 
-Run yarn dev
+<code>Run yarn dev</code>
