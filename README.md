@@ -11,6 +11,8 @@ Make up the application with slides in accordance with the attached demo video. 
 
 Check out [live](https://task-from-onpoint.vercel.app/)
 
+https://user-images.githubusercontent.com/55977481/236621958-6e112f19-1564-49e1-a1c4-74bac14a1217.mp4
+
 ## How to run
 
 Clone this repo
@@ -20,3 +22,5 @@ Clone this repo
 <code>Run yarn</code>
 
 <code>Run yarn dev</code>
+
+
